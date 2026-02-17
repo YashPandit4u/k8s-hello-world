@@ -18,7 +18,13 @@ spec:
       containers:
         - image: yashpandit4u/golang-echo-server:0.3
           name: golang-echo-server
-          resources: {}
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "100m"
+            limits:
+              memory: "64Mi"
+              cpu: "200m"
 status: {}
