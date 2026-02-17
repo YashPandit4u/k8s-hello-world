@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
+  labels:
+    app: hello-world-ingress
 spec:
   ingressClassName: nginx
   rules:
@@ -15,10 +17,10 @@ spec:
                 name: hello-world-server
                 port:
                   number: 80
-          - path: /default
+          - path: /daemon
             pathType: Prefix
             backend:
               service:
-                name: hello-world-server
+                name: hello-world-daemonset-service
                 port:
                   number: 80

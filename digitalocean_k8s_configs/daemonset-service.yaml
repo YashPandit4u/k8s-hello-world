@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hello-world-daemonset-service
+  name: hello-world-daemonset-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 5678
+  selector:
+    app: hello-world-daemon

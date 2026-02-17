@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: hello-world-daemonset
+  name: hello-world-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: hello-world-daemon
+  template:
+    metadata:
+      labels:
+        app: hello-world-daemon
+    spec:
+      containers:
+        - name: hashicorp
+          image: hashicorp/http-echo:latest
+          args:
+            - "-text=Hello from DaemonSet!"
+          ports:
+            - containerPort: 5678
