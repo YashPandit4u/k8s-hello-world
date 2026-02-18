@@ -6,7 +6,7 @@ export const options = {
             executor: 'constant-arrival-rate',
             rate: 2000,          // 👈 requests per second
             timeUnit: '1s',
-            duration: '30s',   // 👈 test duration
+            duration: '300s',   // 👈 test duration
             preAllocatedVUs: 20,
             maxVUs: 2000,
         },
@@ -14,5 +14,5 @@ export const options = {
 };
 
 export default function () {
-    http.get('http://146.190.191.97/daemon');
+    http.get('http://24.199.78.56/app');
 }
