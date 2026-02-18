@@ -13,5 +13,5 @@ helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --name
 
 Install standard metrics server:
 ```
-kubectl apply -f [https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml](https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml)
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
