@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hello-world-server
+  namespace: monitoring # same namespace as your Prometheus instance
+  labels:
+    release: prometheus # matches Prometheus's serviceMonitorSelector label
+spec:
+  selector:
+    matchLabels:
+      app: hello-world-server # matches your Service's labels
+  namespaceSelector:
+    matchNames:
+      - default # namespace where your service lives
+  endpoints:
+    - port: "http" # named port from the Service spec → resolves to pod port 8080
+      path: /metrics

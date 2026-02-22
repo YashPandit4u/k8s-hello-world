@@ -3,9 +3,13 @@ kind: Deployment
 metadata:
   labels:
     app: hello-world-server
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
+    prometheus.io/path: "/metrics"
   name: hello-world-server
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: hello-world-server
@@ -16,7 +20,7 @@ spec:
         app: hello-world-server
     spec:
       containers:
-        - image: yashpandit4u/golang-echo-server:0.3
+        - image: yashpandit4u/golang-echo-server:0.4
           name: golang-echo-server
           ports:
             - containerPort: 8080

@@ -23,3 +23,17 @@ helm repo update
 helm install keda kedacore/keda --namespace keda --create-namespace
 kubectl get pods -n keda
 ```
+
+Adding prometheus:
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+```
+
+Adding grafana:
+```
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm install grafana grafana/grafana --namespace monitoring --create-namespace
+```
