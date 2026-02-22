@@ -18,3 +18,13 @@ Also then run load testing using:
 ```
 k6 run k6-load-test.js
 ```
+
+Running prometheus locally:
+```
+docker run -d -p 9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+```
+
+Running grafana locally:
+```
+docker run -d -p 3000:3000 --name=grafana grafana/grafana
+```

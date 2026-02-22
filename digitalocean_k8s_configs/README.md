@@ -15,3 +15,11 @@ Install standard metrics server:
 ```
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
+
+For installing keda autoscaler:
+```
+helm repo add kedacore https://kedacore.github.io/charts  
+helm repo update
+helm install keda kedacore/keda --namespace keda --create-namespace
+kubectl get pods -n keda
+```

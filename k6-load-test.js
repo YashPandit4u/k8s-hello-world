@@ -14,5 +14,5 @@ export const options = {
 };
 
 export default function () {
-    http.get('http://24.199.78.56/app');
+    http.get('http://localhost:8080/');
 }
